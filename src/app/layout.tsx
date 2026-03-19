@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Newsreader } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
-import { ShoppingBag, ChevronLeft, ChevronRight, Share2, Globe, Architecture } from "lucide-react";
+import { ShoppingBag, Share2, Globe } from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-newsreader", style: "italic" });
@@ -22,7 +23,7 @@ export default function RootLayout({
         {/* Navigation */}
         <header className="fixed top-0 w-full z-[100] h-24 flex justify-between items-center px-6 md:px-[8.5rem] bg-background/80 backdrop-blur-xl border-b border-outline-variant/10 transition-all duration-500">
           <div className="flex items-center">
-            <span className="font-serif italic text-2xl tracking-tighter text-primary">GRIT & GLORY</span>
+            <Link href="/" className="font-serif italic text-2xl tracking-tighter text-primary">GRIT & GLORY</Link>
           </div>
           
           <nav className="hidden md:flex items-center space-x-12">
@@ -32,13 +33,13 @@ export default function RootLayout({
               { name: "Archive", href: "/archive" },
               { name: "Collections", href: "/" }
             ].map((item) => (
-              <a 
+              <Link 
                 key={item.name} 
                 className="font-label text-[0.6875rem] transition-all duration-300 hover:text-primary text-primary/60"
                 href={item.href}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -72,13 +73,13 @@ export default function RootLayout({
               <div className="flex flex-col gap-4">
                 <span className="font-label text-primary uppercase tracking-[0.2rem] mb-2">Internal</span>
                 {["Legal", "Privacy"].map(link => (
-                  <a key={link} className="font-label text-primary/40 hover:text-primary transition-colors tracking-widest" href="#">{link}</a>
+                  <Link key={link} className="font-label text-primary/40 hover:text-primary transition-colors tracking-widest" href="#">{link}</Link>
                 ))}
               </div>
               <div className="flex flex-col gap-4">
                 <span className="font-label text-primary uppercase tracking-[0.2rem] mb-2">Connect</span>
                 {["Contact", "Stockists"].map(link => (
-                  <a key={link} className="font-label text-primary/40 hover:text-primary transition-colors tracking-widest" href="#">{link}</a>
+                  <Link key={link} className="font-label text-primary/40 hover:text-primary transition-colors tracking-widest" href="#">{link}</Link>
                 ))}
               </div>
             </div>
